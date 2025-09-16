@@ -1,0 +1,45 @@
+<div class="d-flex vh-100">
+
+  <!-- Sidebar -->
+  <nav [ngClass]="{'d-none d-md-block': !sidebarOpen}" class="bg-dark text-white flex-shrink-0 p-3" style="width: 250px;">
+    <div class="mb-4 text-center">
+      <span class="badge bg-info text-dark fw-bold">{{ rolUsuario() | titlecase }}</span>
+    </div>
+    <ul class="nav nav-pills flex-column">
+      <!-- <li class="nav-item">
+        <button class="nav-link btn btn-dark text-start w-100">Dashboard</button>
+      </li> -->
+       <li class="nav-item">
+     <button
+      class="nav-link btn btn-dark text-start w-100"
+      (click)="goTo('services')">
+      Servicios
+    </button>
+      <li class="nav-item">
+       <button
+      class="nav-link btn btn-dark text-start w-100"
+      (click)="goTo('users')">
+      Usuarios
+    </button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="flex-grow-1">
+    <!-- Header -->
+    <nav class="navbar navbar-dark bg-dark px-3">
+      <button class="btn btn-outline-light d-md-none" (click)="toggleSidebar()">☰</button>
+      <span class="navbar-brand mx-2">Administración</span>
+      <div class="ms-auto d-flex align-items-center gap-2">
+        <span class="badge bg-info text-dark fw-bold">{{ username() | titlecase }}</span>
+        <button class="btn btn-outline-light btn-sm" (click)="cerrarSesion()">Salir</button>
+        <button class="btn btn-outline-light btn-sm" (click)="goHome()">Home</button>
+      </div>
+    </nav>
+     <!-- Contenido dinámico -->
+    <div class="container mt-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow p-4" style="max-width: 400px; width: 100%;">
+     <!-- Logo + Nombre empresa + Mensaje -->
+     <div class="text-center my-3">
+       <img src="/img/logopoli.png" alt="Logo for
+Tecnosoluciones featuring bold green text
+Tecnosoluciones with stylized green curved lines above
+and below the text, set against a light background,
+conveying a professional and welcoming tone"
+width="350" class="mb-2">
+       <!-- <h4 class="fw-bold text-success">Mi Empresa S.A.
+S</h4> -->
+       <p class="text-muted">Bienvenido al sistema de
+servicios </p>
+     </div>
+     <div class="card-header text-center bg-success
+text-white" style="opacity:0.9;">
+       <h3>Registro</h3>
+     </div>
+    <!-- Formulario de registro -->
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          formControlName="email"
+          placeholder="ejemplo@correo.com"
+        />
+        <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="text-danger small">
+          Ingresa un correo válido
+        </div>
+      </div>
+
+      <!-- Username -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Nombre de usuario</label>
+        <input
+          type="text"
+          id="username"
+          class="form-control"
+          formControlName="username"
+          placeholder="Nombre de usuario"
+        />
+        <div *ngIf="form.get('username')?.invalid && form.get('username')?.touched" class="text-danger small">
+          El nombre de usuario es requerido
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          formControlName="password"
+          placeholder="********"
+        />
+      </div>
+
+      <button class="btn btn-success w-100" type="submit" [disabled]="form.invalid">
+        Registrarse
+      </button>
+    </form>
+
+    <!-- Botón para volver a Home -->
+    <button class="btn btn-link w-100 mt-3" (click)="goHome()">
+      ← Volver a Home
+    </button>
+    <hr>
+    <h5 class="text-center">Trabajo realizado para actividad
+estudiantil</h5>
+  </div>
+</div>
+

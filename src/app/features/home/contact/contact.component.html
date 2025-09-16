@@ -1,0 +1,58 @@
+<section class="bg-dark text-white py-5">
+  <div class="container">
+    <h3 class="mb-4 text-center">Contacto</h3>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="row g-3">
+      <!-- Usuario -->
+      <div class="col-md-6">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nombre completo"
+          formControlName="usuario"
+        />
+      </div>
+
+      <!-- Correo -->
+      <div class="col-md-6">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Correo de contacto"
+          formControlName="correo"
+        />
+      </div>
+
+      <!-- Número -->
+      <div class="col-md-6">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Número de contacto"
+          formControlName="numero"
+        />
+      </div>
+
+      <!-- Empresa -->
+      <div class="col-md-6">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nombre de la empresa"
+          formControlName="empresa"
+        />
+      </div>
+
+      <!-- Botón -->
+      <div class="col-12">
+        <button
+          type="submit"
+          class="btn btn-success w-100"
+          [disabled]="form.invalid"
+        >
+          Enviar
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

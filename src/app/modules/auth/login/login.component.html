@@ -1,0 +1,76 @@
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-90 m-5">
+  <div class="row justify-content-center w-100">
+    <div class="col-md-6">
+      <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+        
+        <!-- Logo + Nombre empresa + Mensaje -->
+        <div class="text-center my-3">
+          <img src="assets/img/logopoli.png" alt="Logo Empresa" width="350" class="mb-2">
+          <!-- <h4 class="fw-bold text-success">Mi Empresa S.A.S</h4> -->
+          <p class="text-muted">Bienvenido al sistema de servicios </p>
+        </div>
+
+        <div class="card-header text-center bg-success text-white" style="opacity:0.9;">
+          <h3>Iniciar Sesión</h3>
+        </div>
+
+        <div class="card-body">
+          <form [formGroup]="form" (ngSubmit)="login()">
+            <div class="mb-3">
+              <label for="usuario" class="form-label">Email:</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                <input type="text" class="form-control" formControlName="email" 
+                  placeholder="Ingresa tu email">
+              </div>
+              <span class="text-danger" *ngIf="form.get('email')?.invalid && showValidationErrors">
+                {{getErrorMessage('email')}}
+              </span>
+            </div>
+
+            <div class="mb-3">
+              <label for="contrasena" class="form-label">Contraseña:</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                <input type="password" class="form-control" #passwordInput 
+                  formControlName="password" id="contrasena" placeholder="Ingresa tu contraseña">
+                <button class="btn btn-outline-secondary" (click)="showPass()" type="button">
+                  <i class="bi {{eyeClass}}"></i>
+                </button>
+              </div>
+              <span class="text-danger" *ngIf="form.get('password')?.invalid && showValidationErrors">
+                {{getErrorMessage('password')}}
+              </span>
+            </div>
+
+            <div *ngIf="msg!=''" class="text-center">
+              <p class="text-danger">{{msg}}</p>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <!-- Recuérdame -->
+              <div class="form-check mb-0">
+                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">Recuérdame</label>
+              </div>
+            
+              <!-- Olvidaste tu contraseña -->
+              <div>
+                <a href="auth/olvidaste" class="text-primary">¿Olvidaste tu contraseña?</a>
+              </div>
+            </div>
+            
+            <div class="text-center">
+              <button type="submit" class="btn btn-success">Iniciar Sesión</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card-footer text-muted text-center">
+          ¿No tienes una cuenta? <a href="auth/register">Regístrate</a>
+        </div>
+        <h5 class="text-center">Trabajo realizado para actividad estudientil</h5> 
+      </div>
+    </div>
+  </div>
+</div>

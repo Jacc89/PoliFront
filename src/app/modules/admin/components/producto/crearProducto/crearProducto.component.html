@@ -1,0 +1,85 @@
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-90 m-5">
+  <div class="row justify-content-center w-100">
+    <div class="col-md-6">
+      <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+
+        <!-- Encabezado -->
+        <div class="text-center my-3">
+          <img src="assets/img/logopoli.png" alt="Logo Empresa" width="250" class="mb-2">
+          <!-- <p class="text-muted">Registro de Productos</p> -->
+        </div>
+
+        <div class="card-header text-center bg-success text-white">
+           <h3>{{ isEditMode ? 'Editar Producto' : 'Registrar Producto' }}</h3>
+        </div>
+
+        <div class="card-body">
+          <!-- (ngSubmit)="registerProduct()" -->
+          <form [formGroup]="formProduct" >
+
+            <!-- Nombre del producto -->
+            <div class="mb-3">
+              <label class="form-label">Nombre del Producto:</label>
+              <input type="text" formControlName="name" class="form-control" placeholder="Ej: Laptop Lenovo" required maxlength="50">
+              <span class="text-danger" *ngIf="formProduct.get('name')?.invalid && showValidationErrors">
+                <!-- {{ getErrorMessage('name') }} -->
+              </span>
+            </div>
+
+            <!-- Descripción -->
+            <div class="mb-3">
+              <label class="form-label">Descripción:</label>
+              <textarea formControlName="description" class="form-control" rows="3" placeholder="Escribe una breve descripción..." maxlength="200"></textarea>
+              <span class="text-danger" *ngIf="formProduct.get('description')?.invalid && showValidationErrors">
+                <!-- {{ getErrorMessage('description') }} -->
+              </span>
+            </div>
+
+            <!-- Precio -->
+            <div class="mb-3">
+              <label class="form-label">Precio:</label>
+              <input type="number" formControlName="price" class="form-control" placeholder="Ej: 1200.50" step="0.01" required>
+              <span class="text-danger" *ngIf="formProduct.get('price')?.invalid && showValidationErrors">
+                <!-- {{ getErrorMessage('price') }} -->
+              </span>
+            </div>
+
+            <!-- Stock -->
+            <div class="mb-3">
+              <label class="form-label">Cantidad en Stock:</label>
+              <input type="number" formControlName="stock" class="form-control" placeholder="Ej: 20" required>
+              <span class="text-danger" *ngIf="formProduct.get('stock')?.invalid && showValidationErrors">
+                <!-- {{ getErrorMessage('stock') }} -->
+              </span>
+            </div>
+
+            <!-- Categoría -->
+            <div class="mb-3">
+              <label class="form-label">Categoría:</label>
+              <select formControlName="category" class="form-select" required>
+                <option value="">Seleccione una categoría</option>
+                <option value="tecnologia">Tecnología</option>
+                <option value="hogar">Hogar</option>
+                <option value="ropa">Ropa</option>
+                <option value="otros">Otros</option>
+              </select>
+              <span class="text-danger" *ngIf="formProduct.get('category')?.invalid && showValidationErrors">
+                <!-- {{ getErrorMessage('category') }} -->
+              </span>
+            </div>
+
+            <!-- Botón -->
+            <div class="text-center">
+              <button type="submit" class="btn btn-success">Registrar Producto</button>
+               {{ isEditMode ? 'Actualizar' : 'Registrar' }}
+            </div>
+          </form>
+        </div>
+
+        <div class="card-footer text-muted text-center">
+          <small>Sistema de gestión de productos</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
