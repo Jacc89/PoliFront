@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-contact',
@@ -10,23 +12,36 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  ngOnInit(): void {}
-
+  constructor(private fb: FormBuilder) {}
   form: any;
 
-  constructor(private fb: FormBuilder) {
+  ngOnInit(): void {
     this.form = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      message: ['', Validators.required],
+      nombre: ['', Validators.required],
+      correo: ['', [Validators.required, Validators.email]],
+      numero: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      empresa: ['', Validators.required],
     });
   }
 
   onSubmit() {
-    if (this.form.valid) {
-      alert('Mensagem enviada! 🚀');
-      this.form.reset();
+    if (this.form.invalid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Formulario incompleto',
+        text: 'Por favor llena todos los campos correctamente.',
+      });
+      return;
     }
+
+    Swal.fire({
+      icon: 'success',
+      title: '¡Enviado!',
+      text: `Gracias ${this.form.value.nombre}, pronto nos pondremos en contacto.`,
+      confirmButtonColor: '#198754'
+    });
+
+    this.form.reset();
   }
 
 }
