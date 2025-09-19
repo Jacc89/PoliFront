@@ -15,8 +15,12 @@ export class ServicioService {
     return this.servicios;
   }
 
-  addServicio(servicio: Servicio): void {
-    this.servicios.push(servicio);
+  addServicio(servicio: Omit<Servicio, 'id'>): void {
+    const nextId = this.servicios.length > 0
+      ? Math.max(...this.servicios.map(s => s.id)) + 1
+      : 1;
+    const nuevo: Servicio = { id: nextId, ...servicio };
+    this.servicios.push(nuevo);
   }
 
   removeServicio(id: number): void {
