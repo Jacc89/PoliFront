@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { NgIf } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth-service';
@@ -7,7 +8,7 @@ import { AuthService } from '../../../core/services/auth-service';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, NgIf],
   templateUrl: './login.html',
   styleUrl: './login.scss'
 })
@@ -30,7 +31,7 @@ export class Login {
   if (success) {
     const user = this.auth.currentUser();
     if (user) {
-      this.router.navigate([user.role === 'admin' ? '/admin' : '/']);
+      this.router.navigate([user.role === 'admin' ? '/admin/listservices' : '/']);
     }
   } else {
     this.error = 'Usuario o contraseña incorrectos';

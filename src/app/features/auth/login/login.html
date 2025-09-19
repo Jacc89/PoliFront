@@ -1,4 +1,4 @@
-<div class="container d-flex justify-content-center align-items-center vh-90 m-5">
+<div class="container-fluid d-flex justify-content-center align-items-center vh-90 mt-3">
   <div class="card shadow-lg p-3 mb-5 bg-white rounded" >
     <!-- Logo + Nombre empresa + Mensaje -->
         <div class="text-center my-3">
@@ -37,33 +37,33 @@
           placeholder="********"
         />
       </div>
-       <div class="d-flex justify-content-between align-items-center mb-3">
-              <!-- Recuérdame -->
-              <div class="form-check mb-0">
-                <input type="checkbox" class="form-check-input" id="rememberMe">
-                <label class="form-check-label" for="rememberMe">Recuérdame</label>
-              </div>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <!-- Recuérdame -->
+        <div class="form-check mb-0">
+          <input type="checkbox" class="form-check-input" id="rememberMe">
+          <label class="form-check-label" for="rememberMe">Recuérdame</label>
+        </div>
 
-              <!-- Olvidaste tu contraseña -->
-              <div>
-                <a href="../forgot-password" class="text-primary">¿Olvidaste tu contraseña?</a>
-              </div>
-            </div>
-
+        <!-- Olvidaste tu contraseña -->
+        <div>
+          <a href="../forgot-password" class="text-primary">¿Olvidaste tu contraseña?</a>
+        </div>
+      </div>
 
       <button class="btn btn-success w-100" type="submit" [disabled]="form.invalid">
         Entrar
       </button>
+      <br>
+      <div class="card-footer text-muted text-center m-1">
+        ¿No tienes una cuenta? <a href="../register">Regístrate</a>
+      </div>
     </form>
     </div>
-    <div class="card-footer text-muted text-center">
-  ¿No tienes una cuenta? <a href="../register">Regístrate</a>
-</div>
      <button class="btn btn-link w-100 mt-3" (click)="goHome()">
       ← Volver a Home
     </button>
-        <hr>
-        <h5 class="text-center">Trabajo realizado para actividad estudiantil</h5>
+    <hr>
+    <h5 class="text-center">Trabajo realizado para actividad estudiantil</h5>
 
   </div>
 </div>

@@ -1,5 +1,6 @@
 .navbar {
   font-size: 1rem;
+  color: #f8f9fa;
 
   .navbar-brand {
     font-size: 1.25rem;
@@ -8,11 +9,13 @@
       color: #0c4402; // amarillo bootstrap
     }
   }
-
-  .nav-link {
-    color: #f8f9fa;
-    margin-left: 0.5rem;
-    transition: color 0.2s ease-in-out;
+  .navbar-item .btn {
+  font-size: 1.25rem;
+  color: #f8f9fa;
+  &:hover {
+    color: #0c4402; // amarillo bootstrap
+  }
+}
 
     &.active {
       font-weight: 600;
@@ -22,5 +25,4 @@
     &:hover {
       color: #0c4402;
     }
-  }
 }

@@ -5,7 +5,8 @@ import { Register } from './features/auth/register/register';
 import { AdminLayout } from './features/admin/admin-layout/admin-layout';
 import { AdminServices } from './features/admin/admin-services/admin-services';
 import { AdminUsers } from './features/admin/admin-users/admin-users';
-import { ForgotPasswordComponent } from './features/auth/forgot-password/forgot-password.component';
+import { AdminCreateServices } from './features/admin/admin-create-services/admin-create-services';
+import { ForgotPasswordComponent } from './features/auth/ForgotPassword/ForgotPassword.component';
 
 export const routes: Routes = [
    { path: '', component: Home },
@@ -14,7 +15,8 @@ export const routes: Routes = [
    { path: 'forgot-password', component: ForgotPasswordComponent },
    { path: 'admin', component: AdminLayout,
     children: [
-      { path: 'services', component: AdminServices },
+      { path: 'listservices', component: AdminServices },
+      { path: 'createservices', component: AdminCreateServices },
       { path: 'users', component: AdminUsers },
       { path: '', redirectTo: 'services', pathMatch: 'full' }
     ]
