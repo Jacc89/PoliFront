@@ -2,7 +2,7 @@
   <h2 class="mb-4">{{ editing ? 'Editar Servicio' : 'Crear Servicio' }}</h2>
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
-
+  <!-- Número del servicio -->
    <div class="mb-3">
     <label for="Numservicio" class="form-label">Número del servicio</label>
     <input
@@ -24,6 +24,7 @@
         <option *ngFor="let cat of categorias" [value]="cat.nombre">{{ cat.nombre }}</option>
       </select>
     </div>
+    <!-- Nombre -->
     <div class="mb-3">
       <label for="nombre" class="form-label">Nombre</label>
       <input
@@ -37,7 +38,7 @@
         El nombre es requerido.
       </div>
     </div>
-
+    <!-- Descripción -->
     <div class="mb-3">
       <label for="descripcion" class="form-label">Descripción</label>
       <textarea
@@ -51,7 +52,7 @@
         La descripción es requerida.
       </div>
     </div>
-
+    <!-- Precio -->
     <div class="mb-3">
       <label for="precio" class="form-label">Precio</label>
       <input
