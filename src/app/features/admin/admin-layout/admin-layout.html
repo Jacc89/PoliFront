@@ -1,44 +1,46 @@
-<div class="d-flex vh-100">
+<div class="d-flex vh-100 ">
 
   <!-- Sidebar -->
-  <nav [ngClass]="{'d-none d-md-block': !sidebarOpen}" class="bg-dark text-white flex-shrink-0 p-3" style="width: 250px;">
+  <nav [ngClass]="{'d-none d-md-block': !sidebarOpen}" class="bg-success text-white flex-shrink-0 py-0 px-0" style="max-width: 10%; min-width: 10%;">
     <div class="mb-4 text-center">
-      <span class="badge bg-info text-dark fw-bold">{{ rolUsuario() | titlecase }}</span>
+
+      <img src="img/logopoli.png" alt="Logo" class="img-fluid " style="max-width: 100%;">
+      <!-- <span class="badge bg-light text-dark fw-bold">{{ rolUsuario() | titlecase }}</span> -->
     </div>
-    <ul class="nav nav-pills flex-column">
+    <ul class="nav nav-pills flex-column btn-dark">
       <!-- <li class="nav-item">
         <button class="nav-link btn btn-dark text-start w-100">Dashboard</button>
       </li> -->
        <li class="nav-item">
-     <button
-      class="nav-link btn btn-dark text-start w-100"
-      (click)="goTo('listservices')">
-      Servicios
-    </button>
-      <li class="nav-item">
-       <button
-      class="nav-link btn btn-dark text-start w-100"
-      (click)="goTo('users')">
-      Usuarios
-    </button>
+          <button
+            class="nav-link btn btn-dark text-bg-success w-100 "
+            (click)="goTo('listservices')">
+            Servicios
+          </button>
+        <li class="nav-item">
+           <button
+          class="nav-link btn btn-dark text-bg-success w-100"
+          (click)="goTo('users')">
+          Usuarios
+        </button>
       </li>
     </ul>
   </nav>
 
   <!-- Main Content -->
-  <div class="flex-grow-1">
+  <div class="flex-grow-1 ">
     <!-- Header -->
-    <nav class="navbar navbar-dark bg-dark px-3">
+    <nav class="navbar navbar-dark bg-success px-3 ">
       <button class="btn btn-outline-light d-md-none" (click)="toggleSidebar()">☰</button>
-      <span class="navbar-brand mx-2">Administración</span>
+      <span class="navbar-brand mx-2">TecnoSoluciones</span>
       <div class="ms-auto d-flex align-items-center gap-2">
-        <span class="badge bg-info text-dark fw-bold">{{ username() | titlecase }}</span>
+        <span class="badge bg-light text-dark fw-bold">{{ username() | titlecase }}</span>
         <button class="btn btn-outline-light btn-sm" (click)="cerrarSesion()">Salir</button>
-        <button class="btn btn-outline-light btn-sm" (click)="goHome()">Home</button>
+        <!-- <button class="btn btn-outline-light btn-sm" (click)="goHome()">Home</button> -->
       </div>
     </nav>
      <!-- Contenido dinámico -->
-    <div class="container mt-4">
+    <div class="container-fluid mt-4">
       <router-outlet></router-outlet>
     </div>
   </div>

@@ -32,12 +32,12 @@ export class AdminServices {
   }
 
   verDetalle(servicio: Servicio) {
-  console.log('Detalle:', servicio);
+  this.router.navigate(['/admin/detailservice', servicio.id]);
   // aquí puedes abrir un modal o redirigir a una vista detalle
 }
 
 editar(servicio: Servicio) {
-  console.log('Editar:', servicio);
+   this.router.navigate(['/admin/editservice', servicio.id]);
   // aquí podrías cargar el servicio en un formulario
 }
   goToCreate() {

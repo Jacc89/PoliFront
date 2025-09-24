@@ -1,10 +1,38 @@
 <div class="container mt-4">
-  <h2 class="mb-4">Crear Servicio</h2>
+  <h2 class="mb-4">{{ editing ? 'Editar Servicio' : 'Crear Servicio' }}</h2>
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+
+   <div class="mb-3">
+    <label for="Numservicio" class="form-label">Número del servicio</label>
+    <input
+      type="number"
+      id="Numservicio"
+      class="form-control"
+      formControlName="Numservicio"
+      placeholder="Ingrese el número del servicio"
+    />
+    <div class="text-danger" *ngIf="form.get('Numservicio')?.invalid && form.get('Numservicio')?.touched">
+      El número del servicio debe ser mayor a 0.
+    </div>
+    </div>
+  <!-- Categoría -->
+    <div class="mb-3">
+      <label for="categoria" class="form-label"><strong>Categorías</strong></label>
+      <select id="categoria" class="form-select" formControlName="categoria">
+        <option value="" disabled>Selecciona una categoría</option>
+        <option *ngFor="let cat of categorias" [value]="cat.nombre">{{ cat.nombre }}</option>
+      </select>
+    </div>
     <div class="mb-3">
       <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" id="nombre" class="form-control" formControlName="nombre" placeholder="Ingrese el nombre del servicio" />
+      <input
+        type="text"
+        id="nombre"
+        class="form-control"
+        formControlName="nombre"
+        placeholder="Ingrese el nombre del servicio"
+      />
       <div class="text-danger" *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched">
         El nombre es requerido.
       </div>
@@ -12,7 +40,13 @@
 
     <div class="mb-3">
       <label for="descripcion" class="form-label">Descripción</label>
-      <textarea id="descripcion" class="form-control" formControlName="descripcion" rows="3" placeholder="Ingrese una descripción"></textarea>
+      <textarea
+        id="descripcion"
+        class="form-control"
+        formControlName="descripcion"
+        rows="3"
+        placeholder="Ingrese una descripción"
+      ></textarea>
       <div class="text-danger" *ngIf="form.get('descripcion')?.invalid && form.get('descripcion')?.touched">
         La descripción es requerida.
       </div>
@@ -20,18 +54,46 @@
 
     <div class="mb-3">
       <label for="precio" class="form-label">Precio</label>
-      <input type="number" id="precio" class="form-control" formControlName="precio" placeholder="Ingrese el precio" />
+      <input
+        type="number"
+        id="precio"
+        class="form-control"
+        formControlName="precio"
+        placeholder="Ingrese el precio"
+      />
       <div class="text-danger" *ngIf="form.get('precio')?.invalid && form.get('precio')?.touched">
         El precio debe ser mayor a 0.
       </div>
     </div>
+    <!-- Cantidad -->
+    <div class="mb-3">
+      <label for="cantidad" class="form-label">Cantidad existente</label>
+      <input type="number" id="cantidad" class="form-control" formControlName="cantidad">
+    </div>
 
+    <!-- Promoción -->
+    <div class="mb-3 form-check">
+      <input type="checkbox" id="promocion" class="form-check-input" formControlName="promocion">
+      <label class="form-check-label" for="promocion">¿Está en promoción?</label>
+    </div>
+
+    <!-- Input de archivo para imagen -->
+    <div class="mb-3">
+      <label for="imagen" class="form-label">Seleccionar imagen</label>
+      <input type="file" id="imagen" class="form-control" (change)="onFileSelected($event)" accept="image/*">
+    </div>
+    <!-- Previsualización -->
+    <div *ngIf="imagenPreview" class="mb-3">
+      <label class="form-label">Vista previa:</label><br>
+      <img [src]="imagenPreview" alt="Previsualización" class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
+    </div>
     <div class="d-flex justify-content-between">
       <button type="button" class="btn btn-secondary" (click)="goBack()">
         <i class="bi bi-arrow-left"></i> Volver
       </button>
       <button type="submit" class="btn btn-success" [disabled]="form.invalid">
-        <i class="bi bi-save"></i> Guardar
+        <i class="bi" [ngClass]="editing ? 'bi-pencil-square' : 'bi-save'"></i>
+        {{ editing ? 'Actualizar' : 'Guardar' }}
       </button>
     </div>
   </form>

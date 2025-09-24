@@ -14,10 +14,10 @@ export class Register {
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
+         email: ['', [Validators.required, Validators.email]],
+         username: ['', Validators.required],
+         password: ['', Validators.required]
+       });
   }
    onSubmit() {
     if (this.form.valid) {
