@@ -1,5 +1,79 @@
+# PoliFront
+
+Aplicación frontend en Angular para el proyecto Poligran.
+
+## Resumen
+
+Este repositorio contiene la aplicación de interfaz (frontend) desarrollada con Angular (v20) y SCSS. Incluye una estructura modular por características (`features`) y una carpeta `core` con servicios y modelos compartidos. Los activos estáticos (imágenes, iconos, slider) se almacenan en la carpeta `public`.
+
+## Tecnologías
+
+- Angular 20
+- TypeScript
+- SCSS
+- Bootstrap 5
+- RxJS
+- SweetAlert2
+
+## Requisitos
+
+- Node.js (>= 18 recomendado)
+- npm (>= 9) o pnpm/yarn
+- Angular CLI (opcional, se instala localmente como dependencia de dev)
+
+## Instalación
+
+1. Clonar el repositorio:
+
+   git clone <repositorio>
+   cd PoliFront
+
+2. Instalar dependencias:
+
+   npm install
+
+3. Levantar el servidor de desarrollo:
+
+   npm start
+
+El servidor por defecto usa la configuración `development` definida en `angular.json`.
+
+## Scripts disponibles
+
+Extraídos de `package.json`:
+
+- `npm start` — Ejecuta `ng serve` (servidor de desarrollo).
+- `npm run build` — Construye la aplicación para producción (`ng build`).
+- `npm run watch` — Construcción en modo watch para desarrollo.
+- `npm test` — Ejecuta pruebas con Karma/Jasmine.
+
+## Estructura del proyecto (resumen)
+
+- `src/` — Código fuente de la aplicación.
+  - `app/` — Módulos y componentes principales.
+    - `core/` — Servicios, modelos y layout compartidos (header/footer).
+    - `features/` — Carpetas por características (home, auth, admin, ...).
+  - `main.ts`, `index.html`, `styles.scss` — Entradas principales.
+- `public/` — Activos estáticos que se copian al build (imágenes, slider).
+- `angular.json` — Configuración del build y serve.
+- `package.json` — Scripts y dependencias.
+
+## Cómo contribuir
+
+1. Crear una rama descriptiva: `git checkout -b feat/nombre-cambios`.
+2. Hacer commits pequeños y descriptivos.
+3. Abrir un pull request hacia `main` cuando esté listo para revisión.
+
+## Notas adicionales
+
+- La configuración del build está en `angular.json`. La configuración por defecto de `serve` usa `development`.
+- Para producción, ejecutar `npm run build` y desplegar el contenido de `dist/` en el servidor web.
+
+---
+
+Si quieres, puedo generar documentación adicional (archivo de arquitectura, setup detallado y guía de pruebas). ¿Deseas que lo haga? 
 # link de despliegue
-polifront.netlify.app
+[polifront.netlify.app](https://polifronts.netlify.app/)
 
 
 # Poligran
