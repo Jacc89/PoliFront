@@ -58,11 +58,85 @@ Extraídos de `package.json`:
 - `angular.json` — Configuración del build y serve.
 - `package.json` — Scripts y dependencias.
 
+## Diagramas y arquitectura
+
+La documentación de arquitectura con diagramas (Mermaid) está en `docs/ARCHITECTURE.md`. Ahí encontrarás:
+
+- Diagrama de la arquitectura general (cliente, app, backend).
+- Diagrama resumido de la estructura de carpetas.
+- Flujo de autenticación (login) como secuencia.
+
+
 ## Cómo contribuir
 
 1. Crear una rama descriptiva: `git checkout -b feat/nombre-cambios`.
 2. Hacer commits pequeños y descriptivos.
 3. Abrir un pull request hacia `main` cuando esté listo para revisión.
+
+## Quick Start (rápido)
+
+1. Clonar el repositorio y entrar en la carpeta:
+
+    git clone <repositorio>
+    cd PoliFront
+
+2. Instalar dependencias:
+
+    npm install
+
+3. Iniciar en modo desarrollo:
+
+    npm start
+
+Visita http://localhost:4200.
+
+## Workflow de desarrollo recomendado
+
+- Branches:
+   - `main` — rama estable y desplegada.
+   - `develop` (opcional) — integración de features antes de PR a main.
+   - `feat/<descripcion>` — nuevas funcionalidades.
+   - `fix/<descripcion>` — correcciones.
+
+- Commits:
+   - Mensajes en inglés o español claros: `feat: agregar validación de email`.
+   - Haz commits pequeños y atómicos.
+
+- Pull Requests:
+   - Incluye descripción, screenshots y pasos para probar.
+   - Asigna reviewers y etiqueta el tipo de cambio (feature/bugfix/docs).
+
+## Variables de entorno (ejemplo)
+
+Este frontend debe apuntar a una API; evita hardcodear URLs. Ejemplo de `.env` o `src/environments`:
+
+```
+API_BASE_URL=https://api.ejemplo.com
+AUTH_TOKEN_EXPIRY=3600
+```
+
+En Angular, es habitual tener `src/environments/environment.ts` y `src/environments/environment.prod.ts` con la propiedad `apiUrl`.
+
+## Testing
+
+- Unit tests (Karma + Jasmine):
+
+   npm test
+
+- Recomendación: añadir tests para servicios críticos (auth, user service) y componentes con lógica.
+
+## Build y despliegue
+
+- Producción:
+
+   npm run build
+
+   El contenido de `dist/` puede servir desde Nginx, Apache o servicios estáticos (Netlify, S3).
+
+- Consideraciones:
+   - Configura CORS en el backend si es necesario.
+   - Para rutas con SPA, configura el servidor para redirigir 404 a `index.html`.
+
 
 ## Notas adicionales
 

@@ -51,6 +51,63 @@ Si usas `pnpm` o `yarn` reemplaza `npm install` por `pnpm install` o `yarn`.
 
 - Este repositorio es sólo el frontend. La configuración de la URL de la API y variables sensibles deben centralizarse (por ejemplo en `environments/` si se agrega) y no deben incluirse en el control de versiones.
 
+### Ejemplo: `src/environments/environment.ts`
+
+```ts
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:3000/api'
+};
+```
+
+### Ejemplo: `src/environments/environment.prod.ts`
+
+```ts
+export const environment = {
+  production: true,
+  apiUrl: 'https://api.mi-dominio.com/api'
+};
+```
+
+Coloca estos archivos en `src/environments/` y usa `environment.apiUrl` desde tus servicios.
+
+## Instrucciones específicas para Windows
+
+- Usando Git Bash/WSL (bash): los comandos `git clone`, `npm install` y `npm start` funcionan igual que en Linux/Mac.
+- Usando PowerShell (recomendado en Windows nativo): abre PowerShell como usuario normal (no es necesario admin) e instala Node.js. Luego:
+
+```powershell
+git clone <repositorio>
+cd PoliFront
+npm install
+npm start
+```
+
+- Si tienes problemas con permisos en `node_modules`, elimina `node_modules` y vuelve a ejecutar `npm install`.
+
+## Configuración de proxy para APIs en desarrollo
+
+Si tu API está en otro puerto y quieres evitar problemas CORS en desarrollo, puedes usar el proxy de Angular creando `proxy.conf.json` en la raíz:
+
+```json
+{
+  "/api": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
+```
+
+Y arrancar `ng serve` con:
+
+```bash
+ng serve --proxy-config proxy.conf.json
+```
+
+O agrega la opción en tu `package.json` script si lo prefieres.
+
+
 ## Resolución de problemas comunes
 
 - Error de compatibilidad de Node: usa la versión recomendada y reinstala `node_modules` eliminando `node_modules/` y `package-lock.json`.
