@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { AdminServices } from '../admin-services/admin-services';
-import { AdminUsers } from '../admin-users/admin-users';
+import { Footer } from '../../../core/layout/footer/footer';
 
 @Component({
   selector: 'app-admin-layout',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, Footer],
   templateUrl: './admin-layout.html',
   styleUrl: './admin-layout.scss'
 })

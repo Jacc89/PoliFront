@@ -6,8 +6,8 @@ import { User } from '../../../../core/models/user';
 })
 export class UserService {
    private users: User[] = [
-    { username: 'admin', email: 'admin@demo.com', password: '1234', role: 'admin' },
-    { username: 'user1', email: 'user1@demo.com', password: '1234', role: 'user' }
+    { username: 'admin', email: 'admin@demo.com', password: 'Admin123*', role: 'admin' },
+    // { username: 'user1', email: 'user1@demo.com', password: '1234', role: 'user' }
   ];
 
   getUsers(): User[] {

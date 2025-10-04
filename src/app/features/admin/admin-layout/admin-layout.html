@@ -1,10 +1,10 @@
-<div class="d-flex vh-100 ">
+<div class="d-flex ">
 
   <!-- Sidebar -->
-  <nav [ngClass]="{'d-none d-md-block': !sidebarOpen}" class="bg-success text-white flex-shrink-0 py-0 px-0" style="max-width: 10%; min-width: 10%;">
+  <nav [ngClass]="{'d-none d-md-block': !sidebarOpen}" class="bg-success text-white flex-shrink-0 py-0 px-0 abc" >
     <div class="mb-4 text-center">
 
-      <img src="img/logopoli.png" alt="Logo" class="img-fluid " style="max-width: 100%;">
+      <img src="img/logopoli.png" alt="Logo" class="img-fluid logo">
     </div>
     <ul class="nav nav-pills flex-column btn-dark">
         <li class="nav-item">
@@ -36,8 +36,15 @@
       </div>
     </nav>
      <!-- Contenido dinámico -->
-    <div class="container-fluid mt-4">
+    <div class="container mt-5">
       <router-outlet></router-outlet>
     </div>
   </div>
+  <div class="footer">
+    <!-- Footer -->
+  <app-footer></app-footer>
+
+  </div>
+
+
 </div>
