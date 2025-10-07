@@ -23,6 +23,7 @@ export class Register {
     if (this.form.valid) {
       console.log('Datos de registro:', this.form.value);
       // Aquí luego conectarías con un servicio de registro
+      this.router.navigate(['/']);
     }
   }
 
