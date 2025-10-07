@@ -147,7 +147,7 @@ En Angular, es habitual tener `src/environments/environment.ts` y `src/environme
 
 Si quieres, puedo generar documentación adicional (archivo de arquitectura, setup detallado y guía de pruebas). ¿Deseas que lo haga? 
 # link de despliegue
-[polifront.netlify.app](https://polifronts.netlify.app/)
+[polifront.netlify.app](https://polifront.netlify.app/)
 
 
 # Poligran
